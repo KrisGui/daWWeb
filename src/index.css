@@ -5,9 +5,128 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: #444;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+button {
+  background-color: #aaa;
+  border: 1px solid #555;
+  border-radius: 3px;
+  margin: 1px;
+}
+
+input {
+  background-color: #bbb;
+  min-width: 0;
+  border: 1px solid #555;
+  border-radius: 3px;
+  margin: 1px;
+  padding: 2px;
+}
+
+table {
+  table-layout: fixed;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 11px;
+  text-align: center;
+  align-content: center;
+  background-color: #bbb;
+  border: 1px solid #444;
+  border-radius: 3px;
+  margin: 2px;
+}
+
+td.data {
+  width: 30px;
+}
+
+.container {
+  display: flex;
+  background-color: #666;
+  text-align: center;
+  width: 98vw;
+  border-radius: 5px;
+  margin: 2px;
+}
+
+.Main {
+  text-align: center;
+}
+
+.Transport {
+  flex-direction: row;
+  height: 3vh;
+  align-content: center;
+  justify-content: space-around;
+  margin: auto;
+  margin-top: 1vh;
+}
+
+.Transport #play-pause.active {
+  background-color: #3c3;
+}
+
+@keyframes glowing {
+  0% {background-color: #3c3;}
+  50% {background-color: #aaa;}
+  100% {background-color: #3c3;}
+}
+
+.Transport #play-pause.paused {
+  animation: glowing 2s infinite;
+}
+
+.Transport #stop.active {
+  background-color: #e33;
+}
+
+.Transport #bpmInput {
+  text-align: center;
+  width: 5em;
+}
+
+.Transport input::-webkit-outer-spin-button,
+.Transport input::-webkit-inner-spin-button {
+  display: none;
+  margin: 0;
+}
+
+.Transport #metronome.active, #tap.active {
+  background-color: #ee3;
+}
+
+.Tracklist {
+  flex-direction: row;
+  height: 40vh;
+}
+
+.Tracklist select {
+  margin: 3px;
+}
+
+.Tracklist .controller.container {
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  height: 3vh;
+  margin: 2px auto 0;
+}
+
+.Track.container {
+  display: inline;
+  min-height: 50vh;
+  border-radius: 0;
+  margin: auto;
+}
+
+.Tracklist .master {
+  justify-self: right;
+  height: 50vh;
 }
