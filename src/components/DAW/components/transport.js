@@ -3,6 +3,7 @@ import WebDawButton from "./WebDawButton";
 import Tone from "tone";
 
 class Transport extends Component {
+  //time to refactor!!!
   constructor(props) {
     super(props);
     //decorate component with tonejs functionality
