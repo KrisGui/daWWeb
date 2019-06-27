@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef, useLayoutEffect} from 'react'
 import Tone from 'tone'
 
-const TapTempo = ({changeBPM}) => {
+const TapTempo = props => {
   useEffect(() => {
     window.tapWatch = new Tone.TickSource(1).start(0)
     return () => {
@@ -9,7 +9,7 @@ const TapTempo = ({changeBPM}) => {
     }
   }, [])
 
-  const [taps, setTaps] = useState([])
+  const [taps] = useState([])
   useEffect(() => {}, [taps])
 
   const tapButtonRef = useRef()

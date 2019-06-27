@@ -1,12 +1,12 @@
-import React from "react";
+import React from "./react";
 import ToneJsContext from "./ToneJsContext";
-import ToneJs from "./ToneJs";
-import Tone from "tone";
+// import ToneJs from "./ToneJs";
+import Tone from "./tone";
 
 class ToneJsProvider extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
   createSynth = () => {
     return new Tone.Synth({
       oscillator: { type: "sawtooth" },
@@ -17,9 +17,9 @@ class ToneJsProvider extends React.Component {
       }
     });
   };
-  interfaceContent = {
-    actionButton: "TestAction"
-  };
+  // interfaceContent = {
+  //   actionButton: "TestAction"
+  // };
   render() {
     return (
       <ToneJsContext.Provider value={this}>

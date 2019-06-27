@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import WebDawButton from "./WebDawButton";
+import Button from "../UI/button";
 import Tone from "tone";
 
 class Transport extends Component {
@@ -183,7 +183,7 @@ class Transport extends Component {
     return (
       <div className="Transport container">
         <div className="tempo controller">
-          <WebDawButton 
+          <Button 
           git/>
           <button
             type="button"

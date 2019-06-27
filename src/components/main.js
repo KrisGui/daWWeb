@@ -1,23 +1,18 @@
-import React from "react";
-import { Transport, Tracklist } from "./DAW/";
+import React from 'react';
+import { Transport, Tracklist } from './DAW/';
 
-import ToneJsProvider from "./context/ToneJsProvider";
-import ToneJsContext from "./context/ToneJsContext";
+// import ToneJsProvider from './context/ToneJsProvider';
+// import ToneJsContext from './context/ToneJsContext';
+import ToneProvider from './DAW/context/ToneProvider'
 
 const Main = () => {
   return (
-    <ToneJsProvider>
-      <ToneJsContext.Consumer>
-        {props => {
-          return (
-            <div className="Main">
-              <Transport toneJsContext={props} />
-              <Tracklist />
-            </div>
-          );
-        }}
-      </ToneJsContext.Consumer>
-    </ToneJsProvider>
+    <ToneProvider>
+      <div className="Main">
+        <Transport />
+        <Tracklist />
+      </div>
+    </ToneProvider>
   );
 };
 

@@ -22,6 +22,7 @@ button {
 }
 
 input {
+  text-align: center;
   background-color: #bbb;
   min-width: 0;
   border: 1px solid #555;
@@ -92,8 +93,8 @@ td.data {
   width: 5em;
 }
 
-.Transport input::-webkit-outer-spin-button,
-.Transport input::-webkit-inner-spin-button {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
   display: none;
   margin: 0;
 }
