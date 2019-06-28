@@ -23,7 +23,7 @@ class Track extends Component {
   render() {
     return (
       <div className='Track container'>
-        Hello from Track {console.log(this.props.track)}
+        Track Component
       </div>
     )
   }
