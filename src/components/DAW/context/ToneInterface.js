@@ -8,6 +8,12 @@ export const ToneInterface = {
     sixteenths: +Transport.position.split(':')[2][0] + 1,
   },
 
+  trackTypes: ['Audio', 'MIDI', 'Return'],
+
+  instrumentTypes: ['NoiseSynth', 'Synth', 'AMSynth', 'DuoSynth', 'Sampler', 'FMSynth', 'MonoSynth', 'PluckSynth', 'MetalSynth', 'PolySynth', 'MembraneSynth'],
+
+  effectTypes: ['Chorus', 'AutoPanner', 'AutoWah', 'PitchShift', 'StereoWidener', 'Tremolo', 'PingPongDelay', 'Convolver', 'StereoFeedbackEffect', 'Chebyshev', 'Vibrato', 'BitCrusher', 'StereoXFeedbackEffect', 'FeedbackEffect', 'Reverb', 'Distortion', 'JCReverb', 'Freeverb', 'AutoFilter', 'FeedbackDelay', 'Phaser'],
+
   metronome: new Synth({
     oscillator: { type: 'sawtooth' },
     envelope: {
