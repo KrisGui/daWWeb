@@ -1,5 +1,5 @@
 export {default as Transport} from './components/Transport/Transport'
-export {default as Tracklist} from './components/Tracks/tracklist'
+export {default as Tracklist} from './components/Tracks/Tracklist'
 export {default as Track} from './components/Tracks/track'
-
+export {default as Controller} from './components/Tracks/Controller'
 export {default as ToySequencer} from './toySequencer'

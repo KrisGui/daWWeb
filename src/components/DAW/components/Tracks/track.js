@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Input } from '../UI'
 
 class Track extends Component {
   constructor(props) {
@@ -16,14 +17,14 @@ class Track extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    if (this.props !== nextProps) return true
-    return false
+    return this.props !== nextProps
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className='Track container'>
-        Track Component
+       <Input type={'text'} placeholder={this.props.id}/>
       </div>
     )
   }
