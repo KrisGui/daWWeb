@@ -8,6 +8,9 @@ export const Button = ({ innerText }) => {
   useEffect(() => {
     const { current } = buttonRef
     current.addEventListener('mousedown', e => e.preventDefault())
+    return () => {
+      current.removeEventListener('mousedown', e => e.preventDefault())
+    }
   }, [])
 
   return (
