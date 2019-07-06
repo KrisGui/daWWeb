@@ -18,10 +18,10 @@ class Transport extends Component {
       sixteenths: +Tone.Transport.position.split(":")[2][0] + 1
     };
 
-    this.metronome = this.toneJsContext.createSynth();
-
     this.taps = [];
     this.tapWatch = new Tone.TickSource(1).start(0);
+    
+    this.metronome = this.toneJsContext.createSynth();
 
     Tone.Transport.scheduleRepeat(time => {
       const note = Tone.Transport.position.split(":")[1] === "0" ? "A#5" : "C5";
@@ -157,27 +157,27 @@ class Transport extends Component {
       : this.metronome.disconnect(Tone.Master);
   };
 
-  toggleTransport = () => {
-    document.getElementById("stop").className = "";
-    const playPause = document.getElementById("play-pause");
-    switch (Tone.Transport.state) {
-      case "started":
-        Tone.Transport.pause();
-        playPause.className = "paused";
-        break;
-      default:
-        Tone.Transport.start();
-        playPause.className = "active";
-    }
-  };
+  // toggleTransport = () => {
+  //   document.getElementById("stop").className = "";
+  //   const playPause = document.getElementById("play-pause");
+  //   switch (Tone.Transport.state) {
+  //     case "started":
+  //       Tone.Transport.pause();
+  //       playPause.className = "paused";
+  //       break;
+  //     default:
+  //       Tone.Transport.start();
+  //       playPause.className = "active";
+  //   }
+  // };
 
-  stopTransport = () => {
-    document.getElementById("play-pause").className = "";
-    const stop = document.getElementById("stop");
-    Tone.Transport.stop();
-    this.setState({ transportPosition: Tone.Transport.position });
-    stop.className = "active";
-  };
+  // stopTransport = () => {
+  //   document.getElementById("play-pause").className = "";
+  //   const stop = document.getElementById("stop");
+  //   Tone.Transport.stop();
+  //   this.setState({ transportPosition: Tone.Transport.position });
+  //   stop.className = "active";
+  // };
 
   render() {
     return (

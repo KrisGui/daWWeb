@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Tone from 'tone'
+import Tone from '../../Context/tone'
 import Track from './track'
 
 class Tracklist extends Component {

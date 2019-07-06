@@ -1,17 +1,20 @@
-import React, {useState} from 'react';
-import { Select } from '../UI';
+import React, { useContext } from 'react';
+import { ToneCtx } from '../../Context/ToneContext'
 import Track from './track';
 
-const Tracklist = (props) => {
-  const [ tracks, setTracks ] = useState([]);
-  const [ returnTracks, setReturnTracks ] = useState([]);
+const Tracklist = () => {
+  const toneCtx = useContext(ToneCtx)
+  const {
+    tracks,
+    returnTracks,
+  } = toneCtx.tracklistState
   return (
     <div className="tracks">
       <div className="tracklist-container">
         {tracks.map((track, idx) => (
           <Track
             key={track}
-            placeHolder={track}
+            placeholderValue={track}
           />
         ))}
       </div>
@@ -19,13 +22,13 @@ const Tracklist = (props) => {
         {returnTracks.map((returnTrack, idx) => (
           <Track
             key={returnTrack}
-            placeHolder={returnTrack}
+            placeholderValue={returnTrack}
           />
         ))}
       </div>
       <div className="master">
         <Track
-          placeHolder={'Master'}
+          placeholderValue={'Master'}
         />
       </div>
     </div>

@@ -21,10 +21,9 @@ class Track extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className='Track container'>
-       <Input type={'text'} placeholder={this.props.id}/>
+       <Input type={'text'} placeholderValue={this.props.placeholderValue}/>
       </div>
     )
   }

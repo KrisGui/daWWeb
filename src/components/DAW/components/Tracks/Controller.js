@@ -1,17 +1,23 @@
-import React, {useState, useContext} from 'react';
+import React, {
+  // useState,
+  useContext
+} from 'react';
+import { ToneCtx } from '../../Context/ToneContext'
 import { Select, Button } from '../UI';
-import { ToneCtx } from '../../context/ToneProvider'
-import Track from './track';
 
 const Controller = (props) => {
   const toneCtx = useContext(ToneCtx)
-  const { trackTypes, instrumentTypes, effectTypes } = toneCtx;
+  const {
+    trackTypes,
+    instrumentTypes,
+    // effectTypes
+  } = toneCtx;
   return (
     <div>
-      <Select options={trackTypes} defaultValue={'-- Track Types --'}/>
-      <Select options={instrumentTypes} defaultValue={'-- Track Types --'}/>
+      <Select options={trackTypes} defaultValue={'Select Track Type'}/>
+      <Select options={instrumentTypes} defaultValue={'Select Device'}/>
       <Button
-        innerText={'Add track'}
+        buttonText={'Add track'}
         // onClick={() => }
         />
     </div>

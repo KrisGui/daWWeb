@@ -1,12 +1,12 @@
 import React, {
   useRef,
-  useEffect,
-} from 'react';
+  useEffect
+} from 'react'
 
-export const Button = ({ className, buttonText, mouseDownFunc, mouseUpFunc, mouseLeaveFunc }) => {
-  const buttonRef = useRef()
+export const Toggle = ({ className, textValue, mouseDownFunc }) => {
+  const toggleRef = useRef()
   useEffect(() => {
-    const { current } = buttonRef
+    const { current } = toggleRef
     current.addEventListener('mousedown', e => e.preventDefault())
     return () => {
       current.removeEventListener('mousedown', e => e.preventDefault())
@@ -15,12 +15,10 @@ export const Button = ({ className, buttonText, mouseDownFunc, mouseUpFunc, mous
 
   return (
     <button className={className}
-      ref={buttonRef}
+      ref={toggleRef}
       onMouseDown={mouseDownFunc}
-      onMouseUp={mouseUpFunc}
-      onMouseLeave={mouseLeaveFunc}
     >
-      {buttonText}
+      {textValue}
     </button>
   )
-};
+}

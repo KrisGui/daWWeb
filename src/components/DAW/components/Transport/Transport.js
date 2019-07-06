@@ -1,31 +1,38 @@
-import React, { useContext } from 'react';
-import { ToneCtx } from '../../context/ToneProvider';
-import { Button, Input } from '../UI';
+import React, {
+  // useState
+} from 'react'
+
+import { useToneState } from '../../Context/ToneProvider'
+
+import {
+  Button,
+  // Input
+} from '../UI';
+
+import {
+  toggleTransport,
+  stopTransport,
+  toggleMetronome
+} from '../Transport'
 
 const Transport = () => {
-  const toneCtx = useContext(ToneCtx);
-  const {
-    bpm,
-    // beats,
-    // bars,
-    // sixteenths
-  } = toneCtx.state;
-
+  const [state, dispatch] = useToneState()
+  console.log(state)
   return (
     <div className="Transport container">
       <div className="tempo controller">
-        <Button className={'tapTempo'} innerText={'Tap'} />
-        <Button className={'decrementTempo'} innerText={'-'} />
-        <Input className={'tempoDisplay'} type={'number'} placeholder={bpm} />
-        <Button className={'incrementTempo'} innerText={'+'} />
-        <Button className={'metronome'} innerText={'○●'} />
+        <Button className={'tempo-tap'} buttonText={'Tap'} />
+        <Button className={'tempo-decrement'} buttonText={'-'} />
+        {/* <Input className={tempo-input} type={'number'} placeholderValue={bpm} functionality={setBPM} /> */}
+        <Button className={'tempo-increment'} buttonText={'+'} />
+        <Button className={'metronome'} buttonText={'○●'} mouseDownFunc={toggleMetronome} />
       </div>
 
       <div className="position controller" />
 
       <div className="playback controller">
-        <Button className={'toggleTransport'} innerText={'❙▶'} />
-        <Button className={'stopTransport'} innerText={'■'} />
+        <Button className={'playback-toggle'} buttonText={'❙▶'} mouseDownFunc={() => dispatch({type: 'CHANGE_PLAYBACK_STATE', newPlaybackState: 'started'})} />
+        <Button className={'playback-stop'} buttonText={'■'} mouseDownFunc={stopTransport} />
       </div>
     </div>
   );

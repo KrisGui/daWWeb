@@ -1,14 +1,15 @@
-import React, { createContext } from 'react';
-import { ToneInterface } from './ToneInterface'
+import React, { createContext, useReducer, useContext } from 'react';
 
-export const ToneCtx = createContext();
+const ToneContext = createContext();
 
-const ToneProvider = props => {
+const ToneProvider = ({ reducer, initialState, children }) => {
   return (
-    <ToneCtx.Provider value={ToneInterface}>
-      {props.children}
-    </ToneCtx.Provider>
+    <ToneContext.Provider value={useReducer(reducer, initialState)}>
+      {children}
+    </ToneContext.Provider>
   );
 };
+
+export const useToneState = () => useContext(ToneContext);
 
 export default ToneProvider;
