@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+/* import React, { useState } from 'react'
 import Tone, { Transport } from 'tone';
 
 class ToneInterface extends Tone {
@@ -80,4 +80,4 @@ class ToneInterface extends Tone {
   // tapWatch: new TickSource(1).start(0),
 };
 
-export default new ToneInterface()
+export default new ToneInterface() */

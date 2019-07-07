@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef, useLayoutEffect} from 'react'
-import Tone from 'tone'
+import Tone from './tone'
 
 const TapTempo = props => {
   useEffect(() => {

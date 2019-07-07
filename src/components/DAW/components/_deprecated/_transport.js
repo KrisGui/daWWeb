@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+/* import React, { Component } from "react";
 import Button from "../UI/button";
 import Tone from "tone";
 

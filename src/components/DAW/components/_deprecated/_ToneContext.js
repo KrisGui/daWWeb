@@ -1,4 +1,4 @@
-import React, {
+/* import React, {
   createContext,
   useState,
   // useEffect
@@ -54,4 +54,4 @@ const ToneContext = props => {
   )
 }
 
-export default ToneContext
+export default ToneContext */

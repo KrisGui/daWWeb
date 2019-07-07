@@ -1,18 +1,13 @@
 import React from 'react';
-import {
-  Transport,
-  // Tracklist,
-  // Controller
-} from './DAW/';
+import ToneProvider from './DAW/ToneContext/ToneProvider';
 
-import ToneProvider from './DAW/Context/ToneProvider';
+import initialStates from './DAW/ToneContext/API/initialStates';
+import transportReducer from './DAW/ToneContext/reducers/transport';
+import tracklistReducer from './DAW/ToneContext/reducers/tracklist'
 
-import initialState from './DAW/Context/initialStates';
+import { Transport, /* Tracklist, Controller */ } from './DAW';
 
-import transportReducer from './DAW/Context/reducers/transport';
-import tracklistReducer from './DAW/Context/reducers/tracklist'
-
-export const reducer = ({ transportState, tracklistState }, action) => {
+const reducer = ({ transportState, tracklistState }, action) => {
   /* Middleware goes here */
   return {
     transportState: transportReducer(transportState, action),
@@ -22,7 +17,7 @@ export const reducer = ({ transportState, tracklistState }, action) => {
 
 const Main = () => {
   return (
-    <ToneProvider initialState={initialState} reducer={reducer}>
+    <ToneProvider initialState={initialStates} reducer={reducer} >
       <div className="Main">
         <Transport />
         {/* <Controller /> */}

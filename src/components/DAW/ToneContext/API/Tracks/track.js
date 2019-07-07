@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Input } from '../UI'
+import { Input } from '../../../components/UI'
 
 class Track extends Component {
   constructor(props) {

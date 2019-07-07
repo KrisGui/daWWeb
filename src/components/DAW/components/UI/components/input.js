@@ -1,30 +1,26 @@
-import React, {
-  useState,
-  useRef,
-  useEffect
-} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 export const Input = ({ type, placeholderValue, functionality }) => {
   const [input, setInput] = useState('');
-  const [placeholder] = useState(placeholderValue)
-  const inputRef = useRef()
+  const [placeholder] = useState(placeholderValue);
+  const inputRef = useRef();
   useEffect(() => {
-    const { current } = inputRef
+    const { current } = inputRef;
     current.addEventListener('keydown', e => {
       if (e.keyCode === 13) {
-        functionality(input)
-        current.blur()
+        functionality(input);
+        current.blur();
       }
-    })
+    });
     return () => {
       current.removeEventListener('keydown', e => {
         if (e.keyCode === 13) {
-          functionality(input)
-          current.blur()
+          functionality(input);
+          current.blur();
         }
-      })
-    }
-  }, [input, setInput, functionality])
+      });
+    };
+  }, [input, setInput, functionality]);
   return (
     <input
       ref={inputRef}
