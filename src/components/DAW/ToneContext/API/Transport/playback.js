@@ -1,47 +1,26 @@
 import { Transport } from 'tone'
 
-export const handlePlaybackChange = playbackState => {
-  switch (playbackState) {
-    case 'play':
-      Transport.start()
-      break
-    case 'pause':
-      Transport.pause()
-      break
-    case 'stop':
-      Transport.stop()
-      break
-    default:
-      throw new Error('action type is not defined')
-  }
-}
-
-export const changePlayback = newPlaybackState => {
-  return { type: 'playback', payload: newPlaybackState }
-}
-
-const playbackDispatch = {
-  play: (state, action) => ({ ...state, playback: action.payload }),
-  pause: (state, action) => ({ ...state, playback: action.payload }),
-  stop: (state, action) => ({ ...state, playback: action.payload })
-}
-
-// export const playbackReducer = (state, action) => {
-//   if (action.type in playbackDispatch) {
-//     return playbackDispatch[action.type](state, action)
-//   }
-//   return state
-// }
-
-export const playbackReducer = (state, action) => {
+const transportStateReducer = (toneState, action) => {
   switch (action.type) {
-    case 'play':
-      return { ...state, playback: action.payload }
-    case 'pause':
-      return { ...state, playback: action.payload }
-    case 'stop':
-      break
-    default:
-      return state
+    
+    case 'toggleTransport':
+      if (Transport.state === 'started') Transport.pause()
+      else Transport.start()
+      console.log('Transport', Transport.state)
+      return { ...toneState, transport: { ...toneState.transport, transportState: Transport.state } }
+      
+    case 'stopTransport':
+      Transport.stop()
+      console.log('Transport', Transport.state)
+      return { ...toneState, transport: { ...toneState.transport, transportState: Transport.state } }
+
+    default: throw new Error(`Unhandled transportState action: ${action.type}`)
+    
   }
 }
+
+/* ACTION CREATORS */
+export const toggleTransport = () => ({ type: 'toggleTransport' })
+export const stopTransport = () => ({ type: 'stopTransport' })
+
+export default transportStateReducer

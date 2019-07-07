@@ -1,5 +1,0 @@
-export {default as Transport} from './components/Transport'
-export {default as Tracklist} from './components/Tracklist'
-export {default as Track} from './ToneContext/API/Tracks/track'
-export {default as Controller} from './components/UI/Controller'
-export {default as ToySequencer} from './components/_deprecated/_toySequencer'
