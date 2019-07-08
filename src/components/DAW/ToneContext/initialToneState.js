@@ -6,7 +6,19 @@ const initialToneState = {
       taps: [],
       value: Tone.Transport.bpm.value,
     },
-    metronome: false,
+    metronome: {
+      active: false,
+      animationFrame: 0,
+      animationFrames: ['●○', '○●'],
+      device: new Tone.Synth({
+        oscillator: { type: 'sawtooth' },
+        envelope: {
+          decay: 0.005,
+          sustain: 0.005,
+          release: 0.005
+        }
+      })
+    },
     position: Tone.Transport.position,
     transportState: Tone.Transport.state,
   }

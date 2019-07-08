@@ -68,16 +68,16 @@ class ToneInterface extends Tone {
     console.log('metronome clicked')
   }
 
-  // metronome: new Synth({
-  //   oscillator: { type: 'sawtooth' },
-  //   envelope: {
-  //     decay: 0.005,
-  //     sustain: 0.005,
-  //     release: 0.005
-  //   }
-  // }),
+  metronome: new Synth({
+    oscillator: { type: 'sawtooth' },
+    envelope: {
+      decay: 0.005,
+      sustain: 0.005,
+      release: 0.005
+    }
+  }),
 
-  // tapWatch: new TickSource(1).start(0),
+  tapWatch: new TickSource(1).start(0),
 };
 
 export default new ToneInterface() */

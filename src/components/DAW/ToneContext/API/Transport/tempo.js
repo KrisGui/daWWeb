@@ -1,44 +1,28 @@
-// import React, {useState, useEffect, useRef, useLayoutEffect} from 'react'
-// import Tone from 'tone'
+import { Transport } from 'tone'
 
-// const TapTempo = props => {
-//   useEffect(() => {
-//     window.tapWatch = new Tone.TickSource(1).start(0)
-//     return () => {
-//       window.tapWatch.dispose()
-//     }
-//   }, [])
+/* ACTION TYPES */
+export const INCREMENT_BPM = 'INCREMENT_BPM'
+export const DECREMENT_BPM = 'DECREMENT_BPM'
 
-//   const [taps] = useState([])
-//   useEffect(() => {}, [taps])
+const setBPM = newBPM => {
+  isNaN(newBPM)
+    ? newBPM = Transport.bpm.value
+    : newBPM < 30
+    ? Transport.bpm.value = 30
+    : newBPM > 300
+    ? Transport.bpm.value = 300
+    : Transport.bpm.value = newBPM
+}
 
-//   const tapButtonRef = useRef()
-//   useLayoutEffect(() => {
-//     const {current} = tapButtonRef
+const bpmReducer = (state, action) => {
+  switch (action) {
+    case INCREMENT_BPM:
+      break
+    case DECREMENT_BPM:
+      break
+    default:
+      return state
+  }
+}
 
-//     const handleMouseDown = e => {
-//       e.preventDefault()
-//       tapButtonRef.current.classList.add('active')
-//     }
-//     const handleMouseUp = () => tapButtonRef.current.classList.remove('active')
-//     const handleMouseLeave = () => tapButtonRef.current.classList.remove('active')
-
-//     current.addEventListener('mousedown', handleMouseDown)
-//     current.addEventListener('mouseup', handleMouseUp)
-//     current.addEventListener('mouseleave', handleMouseLeave)
-    
-//     return () => {
-//       current.removeEventListener('mousedown', handleMouseDown)
-//       current.removeEventListener('mouseup', handleMouseUp)
-//       current.removeEventListener('mouseleave', handleMouseLeave)
-//     }
-//   })
-
-//   return (
-//     <div>
-//       <button id='tap' ref={tapButtonRef}>Tap</button>
-//     </div>
-//   )
-// }
-
-// export default TapTempo
+export default bpmReducer

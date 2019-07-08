@@ -83,18 +83,18 @@ class Transport extends Component {
     });
   }
 
-  setBPM = newBPM => {
-    isNaN(newBPM)
-      ? (newBPM = this.state.bpm)
-      : newBPM < 30
-      ? (Tone.Transport.bpm.value = 30)
-      : newBPM > 300
-      ? (Tone.Transport.bpm.value = 300)
-      : (Tone.Transport.bpm.value = newBPM);
-    this.setState({
-      bpm: (Math.round(Tone.Transport.bpm.value * 100) / 100).toFixed(2)
-    });
-  };
+  // setBPM = newBPM => {
+  //   isNaN(newBPM)
+  //     ? (newBPM = this.state.bpm)
+  //     : newBPM < 30
+  //     ? (Tone.Transport.bpm.value = 30)
+  //     : newBPM > 300
+  //     ? (Tone.Transport.bpm.value = 300)
+  //     : (Tone.Transport.bpm.value = newBPM);
+  //   this.setState({
+  //     bpm: (Math.round(Tone.Transport.bpm.value * 100) / 100).toFixed(2)
+  //   });
+  // };
 
   inputBPM = e => {
     this.setState({ [e.target.id]: e.target.value });
@@ -297,4 +297,4 @@ Record
 
 Transport Display
   editable (Seek)
-*/
+ */
