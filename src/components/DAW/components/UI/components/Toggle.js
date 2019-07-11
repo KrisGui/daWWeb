@@ -1,21 +1,15 @@
-import React, { useRef, useEffect } from 'react';
-import { useTone } from '../../../ToneContext/ToneContext'
+import React from 'react';
 
-export const Toggle = ({ className, dispatchAction, textValue }) => {
-  const [/* state */, dispatch] = useTone()
-
-  const toggleRef = useRef();
-  useEffect(() => {
-    const { current } = toggleRef;
-
-    current.addEventListener('mousedown', e => e.preventDefault());
-    return () => {
-      current.removeEventListener('mousedown', e => e.preventDefault());
-    };
-  }, []);
-
+export const Toggle = ({ className, func, style, textValue }) => {
   return (
-    <button className={className} ref={toggleRef} onClick={() => dispatch(dispatchAction)}>
+    <button
+      className={className}
+      onMouseDown={e => {
+        e.preventDefault();
+        func();
+      }}
+      style={style}
+    >
       {textValue}
     </button>
   );

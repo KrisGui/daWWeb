@@ -20,7 +20,7 @@ const initialToneState = {
       })
     },
     position: Tone.Transport.position,
-    transportState: Tone.Transport.state,
+    playback: Tone.Transport.state,
   }
 }
 

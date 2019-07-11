@@ -1,5 +1,5 @@
 import Tone from 'tone'
-import transportStateReducer from './API/transport/playback'
+import { playbackReducer } from './API/transport/playback'
 import bpmReducer from './API/transport/tempo'
 
 const ToneReducer = ({ transport }, action) => ({
@@ -19,7 +19,7 @@ const ToneReducer = ({ transport }, action) => ({
       })
     },
     position: Tone.Transport.position,
-    transportState: transportStateReducer(transport.transportState, action)
+    playback: playbackReducer(transport.playback, action)
   }
 })
 
